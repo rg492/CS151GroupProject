@@ -1,23 +1,21 @@
 package application;
-
+	
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-	
-	private final static String title = "Faculty Recommendation Compiler";
-	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			VBox root = (VBox)FXMLLoader.load(getClass().getResource("LoginFX.fxml"));
-			Scene scene = new Scene(root,400,400);
+			VBox root = (VBox)FXMLLoader.load(getClass().getClassLoader().getResource("view/LoginView.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getClassLoader().getResource("css/application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(title);
+			primaryStage.setTitle("Faculty Recommendation Compiler");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -1,11 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1290.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Separator layoutX="628.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="5.0" />
-   </children>
-</AnchorPane>
+<SplitPane dividerPositions="0.47" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1260.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="application.controller.MainController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Label layoutX="63.0" layoutY="127.0" prefHeight="31.0" prefWidth="269.0" text="Student Personal Information">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstName" layoutX="63.0" layoutY="166.0" prefHeight="25.0" prefWidth="220.0" promptText="Student First Name" />
+            <TextField fx:id="lastName" layoutX="305.0" layoutY="166.0" prefHeight="25.0" prefWidth="220.0" promptText="Students Last Name" />
+            <ChoiceBox fx:id="gender" layoutX="63.0" layoutY="232.0" prefWidth="150.0" />
+            <Label layoutX="63.0" layoutY="273.0" prefHeight="31.0" prefWidth="242.0" text="School information">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="schoolName" layoutX="63.0" layoutY="310.0" prefHeight="25.0" prefWidth="220.0" promptText="School Name" />
+            <ChoiceBox fx:id="programRecFor" layoutX="63.0" layoutY="379.0" prefHeight="25.0" prefWidth="220.0" />
+            <Label layoutX="63.0" layoutY="431.0" prefHeight="31.0" prefWidth="242.0" text="Classes and Years Taken">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="firstSemesterTaken" layoutX="63.0" layoutY="484.0" prefWidth="150.0" />
+            <DatePicker fx:id="date" layoutX="298.0" layoutY="310.0" promptText="3/27/2023" />
+            <ChoiceBox fx:id="course1" layoutX="63.0" layoutY="524.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="course2" layoutX="63.0" layoutY="563.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="course3" layoutX="63.0" layoutY="603.0" prefWidth="150.0" />
+            <TextField fx:id="yearTaken" layoutX="240.0" layoutY="484.0" prefHeight="25.0" prefWidth="220.0" promptText="Year Taken" />
+            <TextField fx:id="letterGrade1" layoutX="240.0" layoutY="524.0" prefHeight="25.0" prefWidth="220.0" promptText="Letter Grade Recieved" />
+            <TextField fx:id="letterGrade2" layoutX="240.0" layoutY="563.0" prefHeight="25.0" prefWidth="220.0" promptText="Letter Grade Recieved" />
+            <TextField fx:id="letterGrade3" layoutX="240.0" layoutY="603.0" prefHeight="25.0" prefWidth="220.0" promptText="Letter Grade Recieved" />
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Label layoutX="40.0" layoutY="124.0" prefHeight="31.0" prefWidth="335.0" text="Student Personal Characteristics">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="pCharacter1" layoutX="40.0" layoutY="165.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="pCharacter2" layoutX="217.0" layoutY="165.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="pCharacter3" layoutX="397.0" layoutY="165.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="pCharacter4" layoutX="39.0" layoutY="223.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="pCharacter5" layoutX="216.0" layoutY="223.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="pCharacter6" layoutX="396.0" layoutY="223.0" prefHeight="25.0" prefWidth="158.0" />
+            <Label layoutX="40.0" layoutY="359.0" prefHeight="31.0" prefWidth="335.0" text="Student Academic Characteristics">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="aCharacter1" layoutX="41.0" layoutY="424.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="aCharacter2" layoutX="218.0" layoutY="424.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="aCharacter3" layoutX="398.0" layoutY="424.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="aCharacter4" layoutX="40.0" layoutY="482.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="aCharacter5" layoutX="216.0" layoutY="482.0" prefHeight="25.0" prefWidth="158.0" />
+            <ChoiceBox fx:id="aCharacter6" layoutX="397.0" layoutY="482.0" prefHeight="25.0" prefWidth="158.0" />
+            <Button layoutX="398.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#compile" prefHeight="39.0" prefWidth="158.0" text="Compile" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

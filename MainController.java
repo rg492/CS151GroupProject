@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.input.MouseEvent;
 
 public class MainController {
 
@@ -48,12 +49,36 @@ public class MainController {
 
 	@FXML TextField letterGrade3;
 
+	@FXML ChoiceBox pCharacter1;
+
+	@FXML ChoiceBox pCharacter2;
+
+	@FXML ChoiceBox pCharacter3;
+
+	@FXML ChoiceBox pCharacter4;
+
+	@FXML ChoiceBox pCharacter5;
+
+	@FXML ChoiceBox pCharacter6;
+
+	@FXML ChoiceBox aCharacter1;
+
+	@FXML ChoiceBox aCharacter2;
+
+	@FXML ChoiceBox aCharacter3;
+
+	@FXML ChoiceBox aCharacter4;
+
+	@FXML ChoiceBox aCharacter5;
+
+	@FXML ChoiceBox aCharacter6;
+
 	@FXML public void login() {
 		//check
 		if(pass == defaultPass) {
 			switchToChangePass();
 		}
-		else if(!verifyPassword(pass)){//still working on this
+		else if(!verifyPassword(pass)){
 			/**Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Wrong Password");
 			alert.setContentText("You have entered the wrong password or ");
@@ -85,5 +110,7 @@ public class MainController {
 	@FXML public void signUp(
 			
 			) {}
+
+	@FXML public void compile(MouseEvent event) {}
 	
 }

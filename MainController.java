@@ -1,116 +1,75 @@
 package application.controller;
 
-import java.io.IOException;
-
+import application.CommonUseObjects;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.input.MouseEvent;
 
+
+/**
+ * @author raulg
+ *
+ */
 public class MainController {
 
 	@FXML PasswordField password;
 
-	private String pass = password.getText();
+	public String defaultP = "p";
+		
+	private CommonUseObjects obj = CommonUseObjects.getInstance();
 
-	private String defaultPass = "p";
 
-	@FXML TextField firstName;
+	@FXML Label errorLabel;
 
-	@FXML TextField lastName;
-
-	@FXML ChoiceBox gender;
-
-	@FXML TextField schoolName;
-
-	@FXML ChoiceBox programRecFor;
-
-	@FXML ChoiceBox firstSemesterTaken;
-
-	@FXML DatePicker date;
-
-	@FXML ChoiceBox course1;
-
-	@FXML ChoiceBox course2;
-
-	@FXML ChoiceBox course3;
-
-	@FXML TextField yearTaken;
-
-	@FXML TextField letterGrade1;
-
-	@FXML TextField letterGrade2;
-
-	@FXML TextField letterGrade3;
-
-	@FXML ChoiceBox pCharacter1;
-
-	@FXML ChoiceBox pCharacter2;
-
-	@FXML ChoiceBox pCharacter3;
-
-	@FXML ChoiceBox pCharacter4;
-
-	@FXML ChoiceBox pCharacter5;
-
-	@FXML ChoiceBox pCharacter6;
-
-	@FXML ChoiceBox aCharacter1;
-
-	@FXML ChoiceBox aCharacter2;
-
-	@FXML ChoiceBox aCharacter3;
-
-	@FXML ChoiceBox aCharacter4;
-
-	@FXML ChoiceBox aCharacter5;
-
-	@FXML ChoiceBox aCharacter6;
-
+		
+		/*
+		 * fxml method that handles  when the login button is pressed and checks 
+		 */
 	@FXML public void login() {
-		//check
-		if(pass == defaultPass) {
-			switchToChangePass();
+		
+		String pass = password.getText().toString();
+		
+		if(pass == null) {
+			errorLabel.setText("Password field cannot be empty!");
 		}
-		else if(!verifyPassword(pass)){
-			/**Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Wrong Password");
-			alert.setContentText("You have entered the wrong password or ");
-			ButtonType btnOk = new ButtonType("Ok", ButtonData.CANCEL_CLOSE);
-			alert.getButtonTypes().setAll(btnOk);
-			alert.show();
-			**/
+		//check to see if first login
+		else if (pass.compareTo(defaultP) == 0 && obj.fs.matchPassword(pass)) {
+			obj.switchToScene("view/ResetPasswordLogin.fxml");
 		}
+		
+		//if pass matches we redirect to homepage
+		else if(verifyPassword(pass)){
+			obj.switchToScene("view/HomePage.fxml");//changes scene to create recommendation screen
+		}
+		//password doesnt exist so show alert
 		else {
-			//try {
-				//changeScenes("createRec.fxml");
-			//} catch (IOException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
-			//}
+			errorLabel.setText("Incorrect Password!");
 		}
-	}
-
-	private void switchToChangePass() {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * Method that verifies password so its not null it matches an entry and isnt the defaultP
+	 * @param pass2
+	 * @return boolean
+	 */
 	private boolean verifyPassword(String pass2) {
-		// TODO Auto-generated method stub
+		if (obj.fs.matchPassword(pass2) && pass2.compareTo(defaultP) != 0) {
+			return true;
+		}
+		else
 		return false;
 	}
 
-	@FXML public void signUp(
-			
-			) {}
 
-	@FXML public void compile(MouseEvent event) {}
+
+	
+	public void initialize() {
+		
+		
+	}
+
+	
+	
 	
 }
